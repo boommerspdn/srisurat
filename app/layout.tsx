@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Anuphan, Charm, Sriracha } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const anuphan = Anuphan({
   subsets: ["latin"],
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const charm = Charm({
+  weight: ["400", "700"],
+  subsets: ["thai"],
+});
+const sriracha = Sriracha({
+  weight: ["400"],
+  subsets: ["thai"],
 });
 
 export const metadata: Metadata = {
@@ -24,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${anuphan.className} antialiased text-lg bg-[#E8E8E8]`}>
         {children}
       </body>
     </html>

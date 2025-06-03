@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -8,6 +7,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-charm: "Charm", sans-serif;
+  --font-sriracha: "Sriracha", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -41,6 +42,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-custom-orange: #d95b2f;
+  --color-custom-brown: #342c1f;
 }
 
 :root {
@@ -119,4 +122,33 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@utility container {
+  padding-inline: 10px;
+  margin-inline: auto;
+
+  @variant sm {
+    padding-inline: 20px;
+  }
+
+  @variant lg {
+    padding-inline: 80px;
+  }
+
+  @variant xl {
+    padding-inline: 120px;
+  }
+
+  @variant 2xl {
+    padding-inline: 170px;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
