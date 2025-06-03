@@ -115,11 +115,12 @@ const ContactSection = ({
             alt="Location ทีอยู่ - Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์"
             className="w-14 mt-auto sm:mt-0 sm:w-auto object-contain"
           />
-          <h6 className="font-sriracha sm:text-3xl text-center sm:pt-[2rem]">
+          <span className="font-sriracha sm:text-3xl text-center sm:pt-[2rem]">
             {address}
-          </h6>
+          </span>
         </div>
         <iframe
+          title={address}
           src={location}
           width="100%"
           height="450"

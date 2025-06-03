@@ -29,6 +29,7 @@ const HeroSection = ({ text, button, image, link }: HeroSectionProps) => {
           <Button
             size={"lg"}
             className="w-full max-w-[480px] bg-custom-orange rounded-full shadow text-lg"
+            aria-label="ติดต่อเรา"
           >
             {button}
           </Button>

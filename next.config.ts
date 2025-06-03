@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [new URL(`${process.env.STRAPI_API_URL}/uploads/**`)],
   },
+  productionBrowserSourceMaps: true,
 };
 
 export default nextConfig;

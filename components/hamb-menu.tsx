@@ -27,7 +27,10 @@ const HambMenu = ({
   const phoneNumbers = phoneNumber.split("/").map((num) => num.trim());
   return (
     <Sheet>
-      <SheetTrigger className="flex justify-center items-center size-8 bg-custom-orange absolute right-0 inset-y-0 my-auto rounded-full cursor-pointer shadow-2xl z-20">
+      <SheetTrigger
+        className="flex justify-center items-center size-8 bg-custom-orange absolute right-0 inset-y-0 my-auto rounded-full cursor-pointer shadow-2xl z-20"
+        aria-label="ช่องทางการติดต่อ"
+      >
         <AlignJustify size={19} className="mb-0.5" color="#fff" />
       </SheetTrigger>
       <SheetContent>
