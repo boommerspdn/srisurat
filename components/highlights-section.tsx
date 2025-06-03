@@ -13,7 +13,7 @@ const HighlightsSection = ({
   highlightRight,
 }: HighlightsSectionProps) => {
   return (
-    <div className="grid sm:grid-cols-3 place-items-center gap-8 bg-custom-orange h-fit md:h-[10rem] rounded-3xl py-8 md:py-0 px-6 xl:px-[4rem] 2xl:px-[6rem]">
+    <div className="grid sm:grid-cols-3 place-items-center gap-8 bg-custom-orange h-fit md:h-[10rem] rounded-3xl py-8 md:py-0 px-6 xl:px-[4rem] 2xl:px-[5rem]">
       <Highlight
         image={highlightLeft.image}
         title={highlightLeft.title}

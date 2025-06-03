@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import AboutSection from "@/components/about-section-";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
@@ -7,41 +8,67 @@ import ImageGallery from "@/components/image-gallery";
 import NavBar from "@/components/nav-bar";
 import PromotionSection from "@/components/promotion-section";
 import { flattenAttributes } from "@/lib/utils";
-import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const res = await fetch(
-    `${process.env.STRAPI_API_URL}/api/global?populate[0]=Seo&fields=name&populate[1]=logo`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.TOKEN}`,
-      },
-      cache: "no-store",
-    },
-  );
-
-  const json = await res.json();
-  const seo = json.data.Seo;
-  const faviconUrl = process.env.STRAPI_API_URL + json.data.logo.url;
-
-  return {
-    title: seo.metaTitle,
-    description: seo.metaDescription,
-    icons: [{ url: faviconUrl }],
+  const defaultMetadata: Metadata = {
+    title: "ศรีสุราษฎร์ บ้านน็อคดาวน์",
+    description:
+      "รับสร้างบ้านน็อคดาวน์โครงเหล็ก ราคาเริ่มต้นเพียง 90,000 บาท ออฟฟิศสำเร็จรูป รับต่อเติม รีโนเวท",
   };
+
+  try {
+    const res = await fetch(
+      `${process.env.STRAPI_API_URL}/api/global?populate[0]=Seo&fields=name&populate[1]=logo`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.TOKEN}`,
+        },
+        cache: "no-store",
+      },
+    );
+
+    if (!res.ok) throw new Error(`Strapi error: ${res.status}`);
+
+    const json = await res.json();
+    const seo = json.data.Seo;
+    const faviconUrl = process.env.STRAPI_API_URL + json.data.logo.url;
+
+    return {
+      title: seo.metaTitle ?? defaultMetadata.title,
+      description: seo.metaDescription ?? defaultMetadata.description,
+      icons: [{ url: faviconUrl }],
+    };
+  } catch (error) {
+    console.error("Failed to load metadata:", error);
+    return defaultMetadata;
+  }
 }
 
-const Page = async () => {
-  const reponse = await fetch(
-    `${process.env.STRAPI_API_URL}/api/global?populate=*`,
-    {
+const getPageData = async () => {
+  try {
+    const baseUrl = process.env.STRAPI_API_URL ?? "http://127.0.0.1:1337";
+    const path = "/api/global?populate=*";
+
+    const url = new URL(path, baseUrl);
+    const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${process.env.TOKEN}`,
       },
-    },
-  );
-  const data = await reponse.json();
-  const flattenedData = flattenAttributes(data);
+    });
+
+    if (!res.ok) throw new Error("Failed to fetch page data");
+
+    const data = await res.json();
+
+    return flattenAttributes(data);
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to fetch page data");
+  }
+};
+
+const Page = async () => {
+  const flattenedData = await getPageData();
 
   return (
     <div className="relative size-full">
@@ -57,6 +84,7 @@ const Page = async () => {
         text={flattenedData.heroText}
         button={flattenedData.buttonText}
         image={flattenedData.heroImage}
+        link={flattenedData.facebookLink}
       />
       <div className="container py-16 space-y-16 md:space-y-24 xl:space-y-32">
         <HighlightsSection
