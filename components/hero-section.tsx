@@ -1,7 +1,6 @@
-import Image from "next/image";
-import { Button } from "./ui/button";
-import { StrapiImage } from "./strapi-image";
 import { StrapiImageType } from "@/lib/types";
+import { StrapiImage } from "./strapi-image";
+import { Button } from "./ui/button";
 
 type HeroSectionProps = {
   text: string;
@@ -11,14 +10,15 @@ type HeroSectionProps = {
 
 const HeroSection = ({ text, button, image }: HeroSectionProps) => {
   return (
-    <div className="relative flex justify-center size-full py-[1.5rem]">
+    <div className="relative flex justify-center size-full py-[.7rem] xl:py-[1.5rem]">
       <StrapiImage
         src={image.url}
-        alt={image.alternativeText || ""}
+        alt={image.alternativeText || "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์"}
         className="absolute -z-10 object-cover"
         fill
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
-      <div className="self-end space-y-2 bg-red-500 grid place-items-center w-full z-10 px-2">
+      <div className="self-end space-y-2 grid place-items-center w-full z-10 px-2">
         <p className="font-medium text-white z-20">{text}</p>
         <Button
           size={"lg"}

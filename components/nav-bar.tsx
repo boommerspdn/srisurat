@@ -26,11 +26,15 @@ const NavBar = ({
         <div className="relative h-24">
           <StrapiImage
             src={logo.url}
-            alt={logo.alternativeText || "No Alternative Text"}
+            alt={
+              logo.alternativeText ||
+              "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์ - โลโก้"
+            }
             width={0}
             height={0}
             sizes="100vw"
             className="object-contain h-full w-auto"
+            priority={true}
           />
         </div>
         <HambMenu

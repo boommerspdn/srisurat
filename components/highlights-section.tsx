@@ -12,9 +12,8 @@ const HighlightsSection = ({
   highlightMid,
   highlightRight,
 }: HighlightsSectionProps) => {
-  console.log(highlightRight);
   return (
-    <div className="flex justify-between items-center bg-custom-orange h-[10rem] rounded-3xl 2xl:px-[6rem]">
+    <div className="grid sm:grid-cols-3 place-items-center gap-8 bg-custom-orange h-fit md:h-[10rem] rounded-3xl py-8 md:py-0 px-6 xl:px-[4rem] 2xl:px-[6rem]">
       <Highlight
         image={highlightLeft.image}
         title={highlightLeft.title}

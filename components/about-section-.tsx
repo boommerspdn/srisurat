@@ -17,21 +17,29 @@ const AboutSection = ({
   list,
 }: AboutSectionProps) => {
   return (
-    <div className="grid grid-cols-7 gap-12">
-      <div className="col-span-3">
+    <div className="grid grid-cols-12 lg:space-x-12 space-y-12 lg:space-y-0">
+      <div className="col-span-full lg:col-span-6 2xl:col-span-5">
         <StrapiImage
           src={image.url}
-          alt={image.alternativeText || ""}
+          alt={
+            image.alternativeText ||
+            "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์ - เกี่ยวกับเรา"
+          }
           width={9}
           height={0}
           sizes="100vw"
           className="w-full h-auto object-cover rounded-3xl"
         />
       </div>
-      <div className="flex flex-col gap-8 col-span-4">
-        <h3 className="text-7xl font-bold">{title}</h3>
-        <p className="text-xl">{description}</p>
-        <RichText data={list}></RichText>
+      <div className="flex flex-col gap-8 lg:gap-4 2xl:gap-8 col-span-full lg:col-span-6 2xl:col-span-7">
+        <h3 className="text-5xl/14 xl:text-7xl text-center lg:text-start font-bold break-words">
+          {title}
+        </h3>
+        <p className="text-xl break-words">{description}</p>
+        <RichText
+          data={list}
+          listSpaceClass="space-y-3 lg:space-y-2 2xl:space-y-4 break-words"
+        ></RichText>
       </div>
     </div>
   );

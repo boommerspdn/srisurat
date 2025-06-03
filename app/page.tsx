@@ -6,10 +6,30 @@ import HighlightsSection from "@/components/highlights-section";
 import ImageGallery from "@/components/image-gallery";
 import NavBar from "@/components/nav-bar";
 import PromotionSection from "@/components/promotion-section";
-import { StrapiImage } from "@/components/strapi-image";
-import { Button } from "@/components/ui/button";
 import { flattenAttributes } from "@/lib/utils";
-import Image from "next/image";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const res = await fetch(
+    `${process.env.STRAPI_API_URL}/api/global?populate[0]=Seo&fields=name&populate[1]=logo`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.TOKEN}`,
+      },
+      cache: "no-store",
+    },
+  );
+
+  const json = await res.json();
+  const seo = json.data.Seo;
+  const faviconUrl = process.env.STRAPI_API_URL + json.data.logo.url;
+
+  return {
+    title: seo.metaTitle,
+    description: seo.metaDescription,
+    icons: [{ url: faviconUrl }],
+  };
+}
 
 const Page = async () => {
   const reponse = await fetch(
@@ -38,7 +58,7 @@ const Page = async () => {
         button={flattenedData.buttonText}
         image={flattenedData.heroImage}
       />
-      <div className="container py-16 space-y-24">
+      <div className="container py-16 space-y-16 md:space-y-24 xl:space-y-32">
         <HighlightsSection
           highlightLeft={{
             title: flattenedData.highlightLeftTitle,
@@ -56,13 +76,15 @@ const Page = async () => {
             image: flattenedData.highlightRightImage,
           }}
         />
-        <div className="text-center space-y-6">
-          <h4 className="text-7xl font-bold">
+        <div className="text-center space-y-6 md:space-y-8">
+          <h4 className="text-5xl lg:text-7xl font-bold">
             {flattenedData.introSection.title}
           </h4>
-          <p className="text-xl">{flattenedData.introSection.description}</p>
+          <p className="text-xl pb-4">
+            {flattenedData.introSection.description}
+          </p>
+          <ImageGallery props={flattenedData.introImages} />
         </div>
-        <ImageGallery props={flattenedData.introImages} />
         <PromotionSection images={flattenedData.promoBanner} />
         <AboutSection
           image={flattenedData.aboutUsImage}
@@ -70,6 +92,7 @@ const Page = async () => {
           description={flattenedData.aboutUsDescription}
           list={flattenedData.aboutUsList}
         />
+
         <ContactSection
           image={flattenedData.contactImage}
           title={flattenedData.contactTitle}
