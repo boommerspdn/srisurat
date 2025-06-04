@@ -85,7 +85,7 @@ const Page = async () => {
         text={flattenedData.heroText}
         button={flattenedData.buttonText}
         image={flattenedData.heroImage}
-        link={flattenedData.facebookLink}
+        link={flattenedData.buttonLink}
       />
       <div className="container py-16 space-y-16 md:space-y-24 xl:space-y-32">
         <HighlightsSection
@@ -115,24 +115,26 @@ const Page = async () => {
           <ImageGallery props={flattenedData.introImages} />
         </div>
         <PromotionSection images={flattenedData.promoBanner} />
-        <AboutSection
-          image={flattenedData.aboutUsImage}
-          title={flattenedData.aboutUsTitle}
-          description={flattenedData.aboutUsDescription}
-          list={flattenedData.aboutUsList}
-        />
-
-        <ContactSection
-          image={flattenedData.contactImage}
-          title={flattenedData.contactTitle}
-          lineLabel={flattenedData.contactLine}
-          lineLink={flattenedData.lineLink}
-          fbLabel={flattenedData.contactFacebook}
-          fbLink={flattenedData.facebookLink}
-          phoneNumber={flattenedData.contactNumber}
-          address={flattenedData.contactAddress}
-          location={flattenedData.contactLocation}
-        />
+        <div>
+          <AboutSection
+            image={flattenedData.aboutUsImage}
+            title={flattenedData.aboutUsTitle}
+            description={flattenedData.aboutUsDescription}
+            list={flattenedData.aboutUsList}
+          />
+          <ContactSection
+            image={flattenedData.contactImage}
+            title={flattenedData.contactTitle}
+            lineLabel={flattenedData.contactLine}
+            lineLink={flattenedData.lineLink}
+            fbLabel={flattenedData.contactFacebook}
+            fbLink={flattenedData.facebookLink}
+            phoneNumber={flattenedData.contactNumber}
+            address={flattenedData.contactAddress}
+            location={flattenedData.contactLocation}
+            mapLink={flattenedData.mapLink}
+          />
+        </div>
       </div>
       <Footer
         copyright={flattenedData.copyright}

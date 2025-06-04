@@ -12,6 +12,7 @@ type ContactSectionProps = {
   phoneNumber: string;
   address: string;
   location: string;
+  mapLink: string;
 };
 
 const ContactSection = ({
@@ -24,6 +25,7 @@ const ContactSection = ({
   phoneNumber,
   address,
   location,
+  mapLink,
 }: ContactSectionProps) => {
   const phoneNumbers = phoneNumber.split("/").map((num) => num.trim());
   return (
@@ -108,16 +110,19 @@ const ContactSection = ({
           </a>
         </div>
       </div>
-      <div>
+      <div className="pt-8 md:pt-12 xl:pt-16">
         <div className="flex">
           <img
             src="/location.png"
             alt="Location ทีอยู่ - Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์"
             className="w-14 mt-auto sm:mt-0 sm:w-auto object-contain"
           />
-          <span className="font-sriracha sm:text-3xl text-center sm:pt-[2rem]">
+          <a
+            href={mapLink}
+            className="font-sriracha sm:text-3xl text-center sm:pt-[2rem]"
+          >
             {address}
-          </span>
+          </a>
         </div>
         <iframe
           title={address}
