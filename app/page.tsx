@@ -9,7 +9,7 @@ import NavBar from "@/components/nav-bar";
 import PromotionSection from "@/components/promotion-section";
 import { flattenAttributes } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export async function generateMetadata(): Promise<Metadata> {
   const defaultMetadata: Metadata = {
