@@ -120,6 +120,7 @@ const ContactSection = ({
           <a
             href={mapLink}
             className="font-sriracha sm:text-3xl text-center sm:pt-[2rem]"
+            target="_blank"
           >
             {address}
           </a>
