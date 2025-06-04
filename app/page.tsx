@@ -9,6 +9,8 @@ import NavBar from "@/components/nav-bar";
 import PromotionSection from "@/components/promotion-section";
 import { flattenAttributes } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const defaultMetadata: Metadata = {
     title: "ศรีสุราษฎร์ บ้านน็อคดาวน์",
