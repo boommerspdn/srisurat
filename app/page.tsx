@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
     const json = await res.json();
     const seo = json.data.Seo;
-    const faviconUrl = process.env.STRAPI_API_URL + json.data.logo.url;
+    const faviconUrl = json.data.logo.url;
 
     return {
       title: seo.metaTitle ?? defaultMetadata.title,

@@ -13,7 +13,7 @@ const ImageGallery = ({ props }: ImageGalleryProps) => {
     const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
     return {
       title: prop.name,
-      src: process.env.STRAPI_API_URL + prop.url,
+      src: prop.url,
       alt: prop.alternativeText || "",
       width: prop.width,
       height: prop.height,
