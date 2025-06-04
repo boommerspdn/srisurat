@@ -23,7 +23,6 @@ export async function generateMetadata(): Promise<Metadata> {
         headers: {
           Authorization: `Bearer ${process.env.TOKEN}`,
         },
-        cache: "no-store",
       },
     );
 
