@@ -30,7 +30,7 @@ const ContactSection = ({
   const phoneNumbers = phoneNumber.split("/").map((num) => num.trim());
   return (
     <>
-      <div className="grid grid-cols-7 sm:pt-12">
+      <div className="grid grid-cols-7 pt-12">
         <div className="col-span-full">
           <div className="grid grid-cols-12">
             <img

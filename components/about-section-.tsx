@@ -25,7 +25,7 @@ const AboutSection = ({
             image.alternativeText ||
             "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์ - เกี่ยวกับเรา"
           }
-          width={9}
+          width={0}
           height={0}
           sizes="100vw"
           className="w-full h-auto object-cover rounded-3xl"
