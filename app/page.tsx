@@ -106,9 +106,9 @@ const Page = async () => {
           }}
         />
         <div className="text-center space-y-6 md:space-y-8">
-          <h4 className="text-5xl lg:text-7xl font-bold">
+          <h1 className="text-5xl lg:text-7xl font-bold">
             {flattenedData.introSection.title}
-          </h4>
+          </h1>
           <p className="text-xl pb-4">
             {flattenedData.introSection.description}
           </p>

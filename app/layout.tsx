@@ -21,9 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${anuphan.className} antialiased text-lg bg-[#E8E8E8]`}>
-        <p className={`hidden ${charm.className} ${sriracha.className}`}>
-          Add fonts
-        </p>
+        <h1 className={`hidden ${charm.className} ${sriracha.className}`}>
+          ศรีสุราษฎร์ บ้านน็อคดาวน์
+        </h1>
         {children}
       </body>
     </html>
