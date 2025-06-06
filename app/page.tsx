@@ -129,6 +129,8 @@ const Page = async () => {
             lineLink={flattenedData.lineLink}
             fbLabel={flattenedData.contactFacebook}
             fbLink={flattenedData.facebookLink}
+            tiktokLabel={flattenedData.contactTiktok}
+            tiktokLink={flattenedData.tiktokLink}
             phoneNumber={flattenedData.contactNumber}
             address={flattenedData.contactAddress}
             location={flattenedData.contactLocation}
@@ -139,6 +141,7 @@ const Page = async () => {
       <Footer
         copyright={flattenedData.copyright}
         fbLink={flattenedData.facebookLink}
+        tiktokLink={flattenedData.tiktokLink}
         lineLink={flattenedData.lineLink}
       />
     </div>

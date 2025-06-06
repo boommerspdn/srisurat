@@ -9,6 +9,8 @@ type ContactSectionProps = {
   lineLink: string;
   fbLabel: string;
   fbLink: string;
+  tiktokLabel: string;
+  tiktokLink: string;
   phoneNumber: string;
   address: string;
   location: string;
@@ -22,6 +24,8 @@ const ContactSection = ({
   lineLink,
   fbLabel,
   fbLink,
+  tiktokLabel,
+  tiktokLink,
   phoneNumber,
   address,
   location,
@@ -82,6 +86,21 @@ const ContactSection = ({
               ))}
             </div>
           </div>
+          <a
+            href={tiktokLink}
+            target="_blank"
+            className="flex gap-4 items-center"
+          >
+            <Image
+              src="/tik-tok.png"
+              alt="TikTok - Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="size-10 2xl:size-12"
+            />
+            <span>{tiktokLabel}</span>
+          </a>
           <a href={fbLink} target="_blank" className="flex gap-4 items-center">
             <Image
               src="/facebook.png"
