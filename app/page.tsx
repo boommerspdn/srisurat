@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   try {
     const res = await fetch(
-      `${process.env.STRAPI_API_URL}/api/global?populate[0]=Seo&fields=name&populate[1]=logo`,
+      `${process.env.STRAPI_API_URL}/api/global?populate[0]=Seo&populate[1]=logo&fields[0]=name&populate[2]=heroImage`,
       {
         headers: {
           Authorization: `Bearer ${process.env.TOKEN}`,
@@ -35,9 +35,25 @@ export async function generateMetadata(): Promise<Metadata> {
     const faviconUrl = json.data.logo.url;
 
     return {
-      title: seo.metaTitle ?? defaultMetadata.title,
-      description: seo.metaDescription ?? defaultMetadata.description,
+      title: seo.metaTitle,
+      description: seo.metaDescription,
       icons: [{ url: faviconUrl }],
+      robots: "index, follow",
+      openGraph: {
+        title: seo.metaTitle,
+        description: seo.metaDescription,
+        url: process.env.DOMAIN_NAME,
+        siteName: json.data.name,
+        images: [
+          {
+            url: `${process.env.DOMAIN_NAME}/api/og`,
+            width: 1200,
+            height: 630,
+            alt: "Website Preview",
+          },
+        ],
+        type: "website",
+      },
     };
   } catch (error) {
     console.error("Failed to load metadata:", error);
