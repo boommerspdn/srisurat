@@ -5,6 +5,8 @@ import { StrapiImageType } from "@/lib/types";
 
 type NavBarProps = {
   logo: StrapiImageType;
+  tiktokLabel: string;
+  tiktokLink: string;
   fbLink: string;
   fbLabel: string;
   lineLink: string;
@@ -14,6 +16,8 @@ type NavBarProps = {
 
 const NavBar = ({
   logo,
+  tiktokLabel,
+  tiktokLink,
   fbLink,
   fbLabel,
   lineLink,
@@ -38,6 +42,8 @@ const NavBar = ({
           />
         </div>
         <HambMenu
+          tiktokLabel={tiktokLabel}
+          tiktokLink={tiktokLink}
           fbLink={fbLink}
           fbLabel={fbLabel}
           lineLink={lineLink}

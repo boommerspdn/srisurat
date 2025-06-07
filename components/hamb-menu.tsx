@@ -11,6 +11,8 @@ import Image from "next/image";
 
 type HambMenuProps = {
   phoneNumber: string;
+  tiktokLabel: string;
+  tiktokLink: string;
   fbLink: string;
   fbLabel: string;
   lineLink: string;
@@ -19,6 +21,8 @@ type HambMenuProps = {
 
 const HambMenu = ({
   phoneNumber,
+  tiktokLabel,
+  tiktokLink,
   fbLink,
   fbLabel,
   lineLink,
@@ -60,6 +64,16 @@ const HambMenu = ({
                 ))}
               </div>
             </div>
+            <a href={tiktokLink} target="_blank" className="flex gap-4">
+              <Image
+                src="/tik-tok.png"
+                alt="TikTok - Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์"
+                width={30}
+                height={30}
+                className="object-contain"
+              />
+              <span>{tiktokLabel}</span>
+            </a>
             <a href={fbLink} target="_blank" className="flex gap-4">
               <Image
                 src="/facebook.png"

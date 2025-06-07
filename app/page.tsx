@@ -91,6 +91,8 @@ const Page = async () => {
     <div className="relative size-full">
       <NavBar
         logo={flattenedData.logo}
+        tiktokLabel={flattenedData.contactTiktok}
+        tiktokLink={flattenedData.tiktokLink}
         fbLink={flattenedData.facebookLink}
         fbLabel={flattenedData.contactFacebook}
         lineLink={flattenedData.lineLink}
