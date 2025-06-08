@@ -86,9 +86,21 @@ const getPageData = async () => {
 
 const Page = async () => {
   const flattenedData = await getPageData();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Website",
+    name: flattenedData.name,
+    url: "https://srisurat.net/",
+  };
 
   return (
     <div className="relative size-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <NavBar
         logo={flattenedData.logo}
         tiktokLabel={flattenedData.contactTiktok}
