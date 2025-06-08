@@ -88,10 +88,24 @@ const Page = async () => {
   const flattenedData = await getPageData();
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Website",
+    "@type": "LocalBusiness",
     name: flattenedData.name,
-    url: "https://srisurat.net/",
+    logo: flattenedData.logo.url,
+    description:
+      "รับสร้างบ้านน็อคดาวน์ในสุราษฎร์ธานี (Knockdown House in Surat Thani)",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "36 Bang Sai, Mueang Surat Thani District",
+      addressLocality: "Surat Thani",
+      postalCode: "84000",
+      addressCountry: "TH",
+    },
+    telephone: "+66-88-994-9037",
+    openingHours: "Mo-Sa 08:00-18:00",
+    url: "https://srisurat.net",
+    sameAs: [flattenedData.facebookLink, flattenedData.tiktokLink],
   };
+  console.log(flattenedData.logo.url);
 
   return (
     <div className="relative size-full">
