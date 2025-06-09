@@ -105,90 +105,91 @@ const Page = async () => {
     url: "https://srisurat.net",
     sameAs: [flattenedData.facebookLink, flattenedData.tiktokLink],
   };
-  console.log(flattenedData.logo.url);
 
   return (
-    <div className="relative size-full">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <NavBar
-        logo={flattenedData.logo}
-        tiktokLabel={flattenedData.contactTiktok}
-        tiktokLink={flattenedData.tiktokLink}
-        fbLink={flattenedData.facebookLink}
-        fbLabel={flattenedData.contactFacebook}
-        lineLink={flattenedData.lineLink}
-        lineLabel={flattenedData.contactLine}
-        phoneNumber={flattenedData.contactNumber}
-      />
-      <HeroSection
-        text={flattenedData.heroText}
-        button={flattenedData.buttonText}
-        image={flattenedData.heroImage}
-        link={flattenedData.buttonLink}
-      />
-      <div className="container py-16 space-y-16 md:space-y-24 xl:space-y-32">
-        <HighlightsSection
-          highlightLeft={{
-            title: flattenedData.highlightLeftTitle,
-            description: flattenedData.highlightLeftDescription,
-            image: flattenedData.highlightLeftImage,
-          }}
-          highlightMid={{
-            title: flattenedData.highlightMidTitle,
-            description: flattenedData.highlightMidDescription,
-            image: flattenedData.highlightMidImage,
-          }}
-          highlightRight={{
-            title: flattenedData.highlightRightTitle,
-            description: flattenedData.highlightRightDescription,
-            image: flattenedData.highlightRightImage,
-          }}
+      <div className="relative size-full">
+        <NavBar
+          logo={flattenedData.logo}
+          tiktokLabel={flattenedData.contactTiktok}
+          tiktokLink={flattenedData.tiktokLink}
+          fbLink={flattenedData.facebookLink}
+          fbLabel={flattenedData.contactFacebook}
+          lineLink={flattenedData.lineLink}
+          lineLabel={flattenedData.contactLine}
+          phoneNumber={flattenedData.contactNumber}
         />
-        <div className="text-center space-y-6 md:space-y-8">
-          <h1 className="text-5xl lg:text-7xl font-bold">
-            {flattenedData.introSection.title}
-          </h1>
-          <p className="text-xl pb-4">
-            {flattenedData.introSection.description}
-          </p>
-          <ImageGallery props={flattenedData.introImages} />
-        </div>
-        <PromotionSection images={flattenedData.promoBanner} />
-        <div>
-          <AboutSection
-            image={flattenedData.aboutUsImage}
-            title={flattenedData.aboutUsTitle}
-            description={flattenedData.aboutUsDescription}
-            list={flattenedData.aboutUsList}
+        <HeroSection
+          text={flattenedData.heroText}
+          button={flattenedData.buttonText}
+          image={flattenedData.heroImage}
+          link={flattenedData.buttonLink}
+        />
+        <div className="container py-16 space-y-16 md:space-y-24 xl:space-y-32">
+          <HighlightsSection
+            highlightLeft={{
+              title: flattenedData.highlightLeftTitle,
+              description: flattenedData.highlightLeftDescription,
+              image: flattenedData.highlightLeftImage,
+            }}
+            highlightMid={{
+              title: flattenedData.highlightMidTitle,
+              description: flattenedData.highlightMidDescription,
+              image: flattenedData.highlightMidImage,
+            }}
+            highlightRight={{
+              title: flattenedData.highlightRightTitle,
+              description: flattenedData.highlightRightDescription,
+              image: flattenedData.highlightRightImage,
+            }}
           />
-          <ContactSection
-            image={flattenedData.contactImage}
-            title={flattenedData.contactTitle}
-            lineLabel={flattenedData.contactLine}
-            lineLink={flattenedData.lineLink}
-            fbLabel={flattenedData.contactFacebook}
-            fbLink={flattenedData.facebookLink}
-            tiktokLabel={flattenedData.contactTiktok}
-            tiktokLink={flattenedData.tiktokLink}
-            phoneNumber={flattenedData.contactNumber}
-            address={flattenedData.contactAddress}
-            location={flattenedData.contactLocation}
-            mapLink={flattenedData.mapLink}
-          />
+          <div className="text-center space-y-6 md:space-y-8">
+            <h1 className="text-5xl lg:text-7xl font-bold">
+              {flattenedData.introSection.title}
+            </h1>
+            <p className="text-xl pb-4">
+              {flattenedData.introSection.description}
+            </p>
+            <ImageGallery props={flattenedData.introImages} />
+          </div>
+          <PromotionSection images={flattenedData.promoBanner} />
+          <div>
+            <AboutSection
+              image={flattenedData.aboutUsImage}
+              title={flattenedData.aboutUsTitle}
+              description={flattenedData.aboutUsDescription}
+              list={flattenedData.aboutUsList}
+            />
+            <ContactSection
+              image={flattenedData.contactImage}
+              title={flattenedData.contactTitle}
+              lineLabel={flattenedData.contactLine}
+              lineLink={flattenedData.lineLink}
+              fbLabel={flattenedData.contactFacebook}
+              fbLink={flattenedData.facebookLink}
+              tiktokLabel={flattenedData.contactTiktok}
+              tiktokLink={flattenedData.tiktokLink}
+              phoneNumber={flattenedData.contactNumber}
+              address={flattenedData.contactAddress}
+              location={flattenedData.contactLocation}
+              mapLink={flattenedData.mapLink}
+            />
+          </div>
         </div>
+        <Footer
+          copyright={flattenedData.copyright}
+          fbLink={flattenedData.facebookLink}
+          tiktokLink={flattenedData.tiktokLink}
+          lineLink={flattenedData.lineLink}
+        />
       </div>
-      <Footer
-        copyright={flattenedData.copyright}
-        fbLink={flattenedData.facebookLink}
-        tiktokLink={flattenedData.tiktokLink}
-        lineLink={flattenedData.lineLink}
-      />
-    </div>
+    </>
   );
 };
 
