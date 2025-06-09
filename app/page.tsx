@@ -38,6 +38,8 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.metaTitle,
       description: seo.metaDescription,
       icons: [{ url: faviconUrl }],
+      metadataBase: new URL(`${process.env.DOMAIN_NAME}`),
+      alternates: { canonical: "/" },
       robots: "index, follow",
       openGraph: {
         title: seo.metaTitle,
