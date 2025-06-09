@@ -17,7 +17,7 @@ const HeroSection = ({ text, button, image, link }: HeroSectionProps) => {
         alt={image.alternativeText || "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์"}
         className="absolute -z-10 object-cover"
         fill
-        sizes="(max-width: 768px) 100vw, 50vw"
+        sizes="100vw"
       />
       <div className="self-end space-y-2 grid place-items-center w-full z-10 px-2">
         <p className="font-medium text-white z-20">{text}</p>
