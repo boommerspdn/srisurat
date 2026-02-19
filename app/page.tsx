@@ -68,14 +68,14 @@ const getPageData = async () => {
   try {
     const baseUrl = process.env.STRAPI_API_URL ?? "http://127.0.0.1:1337";
 
-    // 1. Build specific query to avoid Strapi memory spikes
     const query = qs.stringify(
       {
         populate: {
           introSection: true,
           Seo: true,
-          // Target only the URLs of your 9 media fields
-          introImages: { fields: ["url", "alternativeText"] },
+          introImages: {
+            fields: ["url", "alternativeText", "width", "height", "name"],
+          },
           promoBanner: { fields: ["url", "alternativeText"] },
           aboutUsImage: { fields: ["url"] },
           contactImage: { fields: ["url"] },
@@ -92,12 +92,10 @@ const getPageData = async () => {
     const path = `/api/global?${query}`;
     const url = new URL(path, baseUrl);
 
-    // 2. Next.js Fetch with Revalidation (15 minutes)
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${process.env.TOKEN}`,
       },
-      // Next.js specific: This caches the data on the server for 900 seconds
       next: { revalidate: 900 },
     });
 
