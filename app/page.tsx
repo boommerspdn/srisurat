@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import qs from "qs";
 import AboutSection from "@/components/about-section-";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
@@ -66,22 +67,49 @@ export async function generateMetadata(): Promise<Metadata> {
 const getPageData = async () => {
   try {
     const baseUrl = process.env.STRAPI_API_URL ?? "http://127.0.0.1:1337";
-    const path = "/api/global?populate=*";
 
+    // 1. Build specific query to avoid Strapi memory spikes
+    const query = qs.stringify(
+      {
+        populate: {
+          introSection: true,
+          Seo: true,
+          // Target only the URLs of your 9 media fields
+          introImages: { fields: ["url", "alternativeText"] },
+          promoBanner: { fields: ["url", "alternativeText"] },
+          aboutUsImage: { fields: ["url"] },
+          contactImage: { fields: ["url"] },
+          heroImage: { fields: ["url"] },
+          logo: { fields: ["url"] },
+          highlightLeftImage: { fields: ["url"] },
+          highlightMidImage: { fields: ["url"] },
+          highlightRightImage: { fields: ["url"] },
+        },
+      },
+      { encodeValuesOnly: true },
+    );
+
+    const path = `/api/global?${query}`;
     const url = new URL(path, baseUrl);
+
+    // 2. Next.js Fetch with Revalidation (15 minutes)
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${process.env.TOKEN}`,
       },
+      // Next.js specific: This caches the data on the server for 900 seconds
+      next: { revalidate: 900 },
     });
 
-    if (!res.ok) throw new Error("Failed to fetch page data");
+    if (!res.ok) {
+      console.error(`Strapi Error: ${res.status} ${res.statusText}`);
+      throw new Error("Failed to fetch page data");
+    }
 
     const data = await res.json();
-
-    return flattenAttributes(data);
+    return flattenAttributes(data.data);
   } catch (error) {
-    console.error(error);
+    console.error("Fetch Error:", error);
     throw new Error("Failed to fetch page data");
   }
 };
