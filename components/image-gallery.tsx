@@ -13,7 +13,7 @@ const ImageGallery = ({ props }: ImageGalleryProps) => {
     return {
       title: prop.name,
       src: prop.url,
-      alt: prop.alternativeText || "",
+      alt: prop.alternativeText || "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์",
       width: prop.width,
       height: prop.height,
     } as Photo;
