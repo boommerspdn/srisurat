@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [new URL(`${process.env.STRAPI_MEDIA_URL}/*`)],
   },
   productionBrowserSourceMaps: true,
+  staticPageGenerationTimeout: 240,
 };
 
 export default nextConfig;
