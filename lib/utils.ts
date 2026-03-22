@@ -72,6 +72,7 @@ async function waitForStrapi(): Promise<boolean> {
         cache: "no-store",
         signal: controller.signal,
       });
+      console.log(res);
 
       clearTimeout(timeoutId);
 
