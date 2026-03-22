@@ -95,7 +95,7 @@ async function waitForStrapi(): Promise<boolean> {
         console.log(
           `[Attempt ${i + 1}] Connection refused, Strapi still cold...`,
         );
-        console.log(`[URL=${getStrapiURL()}/admin]`);
+        console.log(error);
       }
     }
 
