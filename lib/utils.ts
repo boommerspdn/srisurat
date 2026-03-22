@@ -73,6 +73,7 @@ async function waitForStrapi(): Promise<boolean> {
         cache: "no-store",
         signal: controller.signal,
       });
+      console.log(res);
 
       clearTimeout(timeoutId);
 
@@ -90,6 +91,7 @@ async function waitForStrapi(): Promise<boolean> {
         console.log(
           `[Attempt ${i + 1}] Connection refused, Strapi still cold...`,
         );
+        console.log(`[URL=${getStrapiURL()}/admin]`);
       }
     }
 
