@@ -59,20 +59,45 @@ export function getStrapiMedia(url: string | null) {
   return `${getStrapiURL()}${url}`;
 }
 
-export const waitForStrapi = async (maxRetries = 5, delay = 5000) => {
+async function waitForStrapi(): Promise<boolean> {
+  const maxRetries = 48;
+  const delay = 5000;
+
   for (let i = 0; i < maxRetries; i++) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4000);
+
     try {
       const res = await fetch(`${getStrapiURL()}/admin`, {
         method: "HEAD",
+        cache: "no-store",
+        signal: controller.signal,
       });
-      if (res.ok) return true;
-    } catch (e) {
-      console.log(`Strapi is sleeping... retry ${i + 1}/${maxRetries}`);
+
+      clearTimeout(timeoutId);
+
+      if (res.status < 500) {
+        console.log(`✅ Strapi is awake! (Attempt ${i + 1})`);
+        return true;
+      }
+    } catch (error: any) {
+      clearTimeout(timeoutId);
+      if (error.name === "AbortError") {
+        console.log(
+          `[Attempt ${i + 1}] Ping timed out, Strapi still booting...`,
+        );
+      } else {
+        console.log(
+          `[Attempt ${i + 1}] Connection refused, Strapi still cold...`,
+        );
+      }
     }
+
     await new Promise((resolve) => setTimeout(resolve, delay));
   }
-  throw new Error("Strapi failed to wake up in time.");
-};
+
+  return false;
+}
 
 export const getPageData = async () => {
   try {
@@ -131,7 +156,13 @@ export const getMetadata = async () => {
   };
 
   try {
-    await waitForStrapi();
+    const isAwake = await waitForStrapi();
+
+    if (!isAwake) {
+      console.warn("Strapi did not wake up in 240s, using defaults.");
+      return defaultMetadata;
+    }
+
     const res = await fetch(
       `${process.env.STRAPI_API_URL}/api/global?populate[0]=Seo&populate[1]=logo&fields[0]=name&populate[2]=heroImage`,
       {
