@@ -69,11 +69,9 @@ async function waitForStrapi(): Promise<boolean> {
 
     try {
       const res = await fetch(`${getStrapiURL()}/admin`, {
-        method: "HEAD",
         cache: "no-store",
         signal: controller.signal,
       });
-      console.log(res);
 
       clearTimeout(timeoutId);
 
