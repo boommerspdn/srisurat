@@ -169,6 +169,7 @@ export const getMetadata = async () => {
         headers: {
           Authorization: `Bearer ${process.env.TOKEN}`,
         },
+        next: { revalidate: 900 },
       },
     );
 
