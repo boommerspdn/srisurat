@@ -68,16 +68,21 @@ async function waitForStrapi(): Promise<boolean> {
     const timeoutId = setTimeout(() => controller.abort(), 4000);
 
     try {
-      const res = await fetch(`${getStrapiURL()}/admin`, {
+      const res = await fetch(`${getStrapiURL()}/api/global?t=${Date.now()}`, {
+        method: "GET",
+        headers: {
+          "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+          Accept: "application/json",
+        },
         cache: "no-store",
         signal: controller.signal,
       });
-      console.log(res);
 
       clearTimeout(timeoutId);
 
       if (res.status < 500) {
-        console.log(`✅ Strapi is awake! (Attempt ${i + 1})`);
+        console.log(`✅ Strapi is awake! (Status: ${res.status})`);
         return true;
       }
     } catch (error: any) {
