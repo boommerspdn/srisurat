@@ -72,7 +72,6 @@ async function waitForStrapi(): Promise<boolean> {
     try {
       const res = await fetch(`${baseUrl}/admin}`, {
         method: "GET",
-        next: { revalidate: 1 },
         signal: controller.signal,
       });
 
