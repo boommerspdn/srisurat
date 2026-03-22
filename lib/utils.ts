@@ -60,7 +60,7 @@ export function getStrapiMedia(url: string | null) {
 }
 
 async function waitForStrapi(): Promise<boolean> {
-  const maxRetries = 48;
+  const maxRetries = 50;
   const delay = 5000;
 
   for (let i = 0; i < maxRetries; i++) {
