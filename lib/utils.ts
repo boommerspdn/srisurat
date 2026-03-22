@@ -52,6 +52,8 @@ export function getStrapiURL() {
   return process.env.STRAPI_API_URL ?? "http://127.0.0.1:1337";
 }
 
+const baseUrl = process.env.STRAPI_API_URL;
+
 export function getStrapiMedia(url: string | null) {
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
@@ -60,7 +62,7 @@ export function getStrapiMedia(url: string | null) {
 }
 
 async function waitForStrapi(): Promise<boolean> {
-  const maxRetries = 50;
+  const maxRetries = 10;
   const delay = 5000;
 
   for (let i = 0; i < maxRetries; i++) {
@@ -68,13 +70,8 @@ async function waitForStrapi(): Promise<boolean> {
     const timeoutId = setTimeout(() => controller.abort(), 4000);
 
     try {
-      const res = await fetch(`${getStrapiURL()}/api/global?t=${Date.now()}`, {
+      const res = await fetch(`${baseUrl}/admin}`, {
         method: "GET",
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-          Accept: "application/json",
-        },
         cache: "no-store",
         signal: controller.signal,
       });
@@ -108,8 +105,6 @@ async function waitForStrapi(): Promise<boolean> {
 export const getPageData = async () => {
   try {
     await waitForStrapi();
-    const baseUrl = getStrapiURL();
-
     const query = qs.stringify(
       {
         populate: {
@@ -170,7 +165,7 @@ export const getMetadata = async () => {
     }
 
     const res = await fetch(
-      `${process.env.STRAPI_API_URL}/api/global?populate[0]=Seo&populate[1]=logo&fields[0]=name&populate[2]=heroImage`,
+      `${baseUrl}/api/global?populate[0]=Seo&populate[1]=logo&fields[0]=name&populate[2]=heroImage`,
       {
         headers: {
           Authorization: `Bearer ${process.env.TOKEN}`,
