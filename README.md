@@ -12,7 +12,7 @@ This is a [Next.js](https://nextjs.org/) project that requires a [Strapi](https:
 
 The project uses the following environment variables (see `.env`):
 
-- `STRAPI_API_URL`: URL of the Strapi API (e.g., `https://fearless-splendor-0f91c45bda.strapiapp.com`)
+- `STRAPI_API_URL`: URL of the Strapi API
 - `STRAPI_MEDIA_URL`: URL for Strapi media assets
 - `DOMAIN_NAME`: The domain name for this site
 - `TOKEN`: (if required) API token for authentication
