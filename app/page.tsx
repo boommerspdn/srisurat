@@ -10,8 +10,6 @@ import { getMetadata, getPageData } from "@/lib/utils";
 import type { Metadata } from "next";
 import Script from "next/script";
 
-export const revalidate = 60;
-
 export async function generateMetadata(): Promise<Metadata> {
   return await getMetadata();
 }
@@ -23,7 +21,7 @@ const Page = async () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: flattenedData.name,
-    logo: flattenedData.logo.url,
+    logo: `https://srisurat.net${flattenedData.logo.url}`,
     description:
       "รับสร้างบ้านน็อคดาวน์ในสุราษฎร์ธานี (Knockdown House in Surat Thani)",
     address: {
@@ -33,7 +31,7 @@ const Page = async () => {
       postalCode: "84000",
       addressCountry: "TH",
     },
-    telephone: "+66-88-994-9037",
+    telephone: flattenedData.contactNumber,
     openingHours: "Mo-Sa 08:00-18:00",
     url: "https://srisurat.net",
     sameAs: [flattenedData.facebookLink, flattenedData.tiktokLink],

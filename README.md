@@ -1,62 +1,23 @@
 # Srisurat Website
 
-This is a [Next.js](https://nextjs.org/) project that requires a [Strapi](https://strapi.io/) backend for content management.
+The main branch serves local content and images recovered from https://srisurat.net on October 3, 2026. No Strapi account, API token, or environment variables are required.
 
-## Prerequisites
+## Development
 
-- Node.js (v18 or newer recommended)
-- npm, yarn, pnpm, or bun
-- Access to a running Strapi instance (see `.env` for API URLs)
+Run `npm ci`, then `npm run dev`. Open http://localhost:3000.
 
-## Environment Variables
+Run `npm run build` for a production build and `npm start` to serve it.
 
-The project uses the following environment variables (see `.env`):
+## Editing content
 
-- `STRAPI_API_URL`: URL of the Strapi API
-- `STRAPI_MEDIA_URL`: URL for Strapi media assets
-- `DOMAIN_NAME`: The domain name for this site
-- `TOKEN`: (if required) API token for authentication
+Edit `lib/site-content.json` for text, contact links, SEO, and image paths. Images live in `public/content/`; keep their width and height fields accurate for the gallery. The local rich text blocks are rendered with the existing Strapi blocks renderer, which makes no API requests.
 
-## Getting Started
+The `/api/og` route serves `public/content/social-preview.png`. Update that image if the hero or logo changes.
 
-1. **Install dependencies:**
+## Preserved CMS version
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   # or
-   bun install
-   ```
-
-2. **Configure environment:**
-   - Copy `.env` if needed and update the values to match your Strapi instance.
-
-3. **Run the development server:**
-
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+The local branch `codex/strapi-api` preserves the original Strapi integration, including the Google Ads script fix. It requires `STRAPI_API_URL`, `STRAPI_MEDIA_URL`, `DOMAIN_NAME`, and `TOKEN` as before. Switch to it with `git switch codex/strapi-api` from a clean working tree.
 
 ## Deployment
 
-Deploy this app to your preferred platform (e.g., [Vercel](https://vercel.com/), [Netlify](https://www.netlify.com/)). Make sure the environment variables are set in your deployment environment.
-
-## Notes
-
-- This project fetches content from Strapi. Ensure your Strapi backend is running and accessible.
-- For more details, see the code in the `app/` and `components/` directories.
-
----
-
-Built with [Next.js](https://nextjs.org/) and [Strapi](https://strapi.io/).
+Deploy the main branch with the usual Next.js build command. Content and media are bundled with the repository. The Google Ads tag and Google Maps iframe still use their respective external services.
