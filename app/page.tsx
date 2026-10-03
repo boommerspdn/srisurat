@@ -56,7 +56,7 @@ const Page = () => {
       postalCode: "84000",
       addressCountry: "TH",
     },
-    telephone: "097-979-0912",
+    telephone: "0903231834",
     openingHours: "Mo-Sa 08:00-18:00",
     url: "https://srisurat.net",
     sameAs: [
@@ -102,7 +102,7 @@ const Page = () => {
           fbLabel={"ศรีสุราษฎร์ บ้านน็อคดาวน์"}
           lineLink={"https://line.me/ti/p/gQcTWVxkbE"}
           lineLabel={"srisurat"}
-          phoneNumber={"097-979-0912"}
+          phoneNumber={"0903231834"}
         />
         <HeroSection
           text={"บ้านราคาถูก ที่ดูไม่ถูกคุณภาพต้องมาก่อนกำไร"}
@@ -336,7 +336,7 @@ const Page = () => {
               fbLink={"https://www.facebook.com/profile.php?id=61563082658799#"}
               tiktokLabel={"@suratthanihome"}
               tiktokLink={"https://www.tiktok.com/@suratthanihome"}
-              phoneNumber={"097-979-0912"}
+              phoneNumber={"0989124858"}
               address={
                 "ศรีสุราษฎร์ บ้านน็อคดาวน์ 36 บางไทร 3 ต.บางไทร อ เมือง สุราษฎร์ธานี 84000"
               }
