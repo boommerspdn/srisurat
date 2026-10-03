@@ -1,16 +1,16 @@
 {
   "name": "ศรีสุราษฎร์ บ้านน็อคดาวน์",
   "logo": {
-    "url": "/content/logo_rounded_small_29beb1ae70.png",
-    "name": "logo_rounded_small_29beb1ae70.png",
+    "url": "/content/logo.png",
+    "name": "logo.png",
     "alternativeText": "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์ - โลโก้",
     "width": 192,
     "height": 192,
     "id": 1
   },
   "heroImage": {
-    "url": "/content/hero_ebe575fe28.jpg",
-    "name": "hero_ebe575fe28.jpg",
+    "url": "/content/hero.jpg",
+    "name": "hero.jpg",
     "alternativeText": "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์",
     "width": 1815,
     "height": 966,
@@ -32,7 +32,7 @@
   },
   "introImages": [
     {
-      "url": "/content/intro_7_5c6e657fb6.webp",
+      "url": "/content/intro-7.webp",
       "name": "intro-7.webp",
       "alternativeText": "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์",
       "width": 1477,
@@ -40,7 +40,7 @@
       "id": 6
     },
     {
-      "url": "/content/intro_6_b44ff2c682.webp",
+      "url": "/content/intro-6.webp",
       "name": "intro-6.webp",
       "alternativeText": "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์",
       "width": 1706,
@@ -48,7 +48,7 @@
       "id": 7
     },
     {
-      "url": "/content/intro_8_9655f0386f.webp",
+      "url": "/content/intro-8.webp",
       "name": "intro-8.webp",
       "alternativeText": "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์",
       "width": 1108,
@@ -56,7 +56,7 @@
       "id": 8
     },
     {
-      "url": "/content/intro_1_078b3a9ef4.webp",
+      "url": "/content/intro-1.webp",
       "name": "intro-1.webp",
       "alternativeText": "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์",
       "width": 1242,
@@ -64,7 +64,7 @@
       "id": 9
     },
     {
-      "url": "/content/intro_2_520d69a388.webp",
+      "url": "/content/intro-2.webp",
       "name": "intro-2.webp",
       "alternativeText": "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์ - srisurat",
       "width": 1242,
@@ -72,7 +72,7 @@
       "id": 10
     },
     {
-      "url": "/content/intro_3_be2faf8110.webp",
+      "url": "/content/intro-3.webp",
       "name": "intro-3.webp",
       "alternativeText": "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์ - srisurat",
       "width": 1242,
@@ -80,7 +80,7 @@
       "id": 11
     },
     {
-      "url": "/content/intro_5_d74df703ad.webp",
+      "url": "/content/intro-5.webp",
       "name": "intro-5.webp",
       "alternativeText": "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์ - srisurat",
       "width": 1242,
@@ -88,7 +88,7 @@
       "id": 12
     },
     {
-      "url": "/content/intro_4_171c9a1071.webp",
+      "url": "/content/intro-4.webp",
       "name": "intro-4.webp",
       "alternativeText": "สินค้า ศรีสุราษฎร์ บ้านน็อคดาวน์ - srisurat",
       "width": 1242,
@@ -98,8 +98,8 @@
   ],
   "promoBanner": [
     {
-      "url": "/content/promo_1_78522ea42e.webp",
-      "name": "promo_1_78522ea42e.webp",
+      "url": "/content/promo-1.webp",
+      "name": "promo-1.webp",
       "alternativeText": "บ้านสไตล์ English Cottage",
       "width": 1076,
       "height": 1522,
@@ -107,8 +107,8 @@
     }
   ],
   "aboutUsImage": {
-    "url": "/content/material_info_aae8709970.webp",
-    "name": "material_info_aae8709970.webp",
+    "url": "/content/material-info.webp",
+    "name": "material-info.webp",
     "alternativeText": "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์ - เกี่ยวกับเรา",
     "width": 960,
     "height": 1280,
@@ -170,8 +170,8 @@
     }
   ],
   "contactImage": {
-    "url": "/content/young_man_c265cb0dce.png",
-    "name": "young_man_c265cb0dce.png",
+    "url": "/content/young-man.png",
+    "name": "young-man.png",
     "alternativeText": "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์ - ติดต่อเรา",
     "width": 1197,
     "height": 1613,
@@ -183,8 +183,8 @@
   "mapLink": "https://g.co/kgs/rkydpa8",
   "copyright": "© 2026 Srisurat Copyright ",
   "highlightLeftImage": {
-    "url": "/content/piggy_bank_41299a4261.png",
-    "name": "piggy_bank_41299a4261.png",
+    "url": "/content/piggy-bank.png",
+    "name": "piggy-bank.png",
     "alternativeText": "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์",
     "width": 385,
     "height": 379,
@@ -193,8 +193,8 @@
   "highlightLeftTitle": "ราคาประหยัด",
   "highlightLeftDescription": "คุณภาพเกินราคา",
   "highlightMidImage": {
-    "url": "/content/floor_2823082d15.png",
-    "name": "floor_2823082d15.png",
+    "url": "/content/floor.png",
+    "name": "floor.png",
     "alternativeText": "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์",
     "width": 384,
     "height": 385,
@@ -203,8 +203,8 @@
   "highlightMidTitle": "วัสดุอย่างดี",
   "highlightMidDescription": "แข็งแรง ทนทาน",
   "highlightRightImage": {
-    "url": "/content/on_time_d36b413dce.png",
-    "name": "on_time_d36b413dce.png",
+    "url": "/content/on-time.png",
+    "name": "on-time.png",
     "alternativeText": "Srisurat ศรีสุราษฎร์บ้านน็อคดาวน์",
     "width": 339,
     "height": 327,
