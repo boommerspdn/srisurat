@@ -10,7 +10,7 @@ Run `npm run build` for a production build and `npm start` to serve it.
 
 ## Editing content
 
-Edit `lib/site-content.json` for text, contact links, SEO, and image paths. Images were copied from the original Srisurat Assets folder and live in `public/content/`; keep their width and height fields accurate for the gallery. The local rich text blocks are rendered with the existing Strapi blocks renderer, which makes no API requests.
+Edit the hardcoded props and exported metadata in `app/page.tsx` for text, contact links, SEO, and image paths. Images were copied from the original Srisurat Assets folder and live in `public/content/`; keep their width and height fields accurate for the gallery. The local rich text blocks are rendered with the existing Strapi blocks renderer, which makes no API requests.
 
 The `/api/og` route serves `public/content/social-preview.png`. Update that image if the hero or logo changes.
 
