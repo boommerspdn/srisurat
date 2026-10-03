@@ -8,6 +8,7 @@ import NavBar from "@/components/nav-bar";
 import PromotionSection from "@/components/promotion-section";
 import { getMetadata, getPageData } from "@/lib/utils";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const revalidate = 60;
 
@@ -46,6 +47,19 @@ const Page = async () => {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-18491569296"
+        strategy="afterInteractive"
+      />
+      <Script id="google-ads" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-18491569296');
+        `}
+      </Script>
+      
       <div className="relative size-full">
         <NavBar
           logo={flattenedData.logo}
